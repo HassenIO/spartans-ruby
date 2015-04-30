@@ -31,7 +31,7 @@ module Spartans
   # Returns the hashed JSON of the API response
   #
   def self.push_item params
-    raise Spartans::Error.new('NO_ITEM_ID', '[REQUIRED] You did not provide the item id...') if params[:id].nil? || params[:id].empty?
+    Spartans::Error.cause('NO_ITEM_ID') if params[:id].nil? || params[:id].empty?
 
     curl = init_curl 'items'
     curl.http_post(
@@ -49,6 +49,9 @@ private
   # Init curl with init parameters
   #
   def self.init_curl path
+    Spartans::Error.cause('NO_APP_ID') if @app_id.nil?
+    Spartans::Error.cause('NO_API_KEY') if @api_key.nil?
+
     curl = Curl::Easy.new("#{@api_url}/#{@api_version}/apps/#{@app_id}/#{path}")
     curl.http_auth_types = :basic
     curl.username = @app_id
