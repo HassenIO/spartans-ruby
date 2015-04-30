@@ -11,8 +11,8 @@ module Spartans
   def self.init params
     @app_id = params[:app_id]
     @api_key = params[:api_key]
-    @api_version = 'v1'
-    @api_url = 'http://api.spartans-dev.co:3000'
+    @api_version = params[:api_version] || 'v1'
+    @api_url = params[:api_url] || 'http://api.spartans-dev.co:3000'
     return
   end
 
