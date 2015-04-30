@@ -31,7 +31,7 @@ module Spartans
   # Returns the hashed JSON of the API response
   #
   def self.push_item params
-    Spartans::Error.cause('NO_ITEM_ID') if params[:id].nil? || params[:id].empty?
+    Spartans::Error.cause('NO_ITEM_ID') if params[:id].nil?
 
     curl = init_curl 'items'
     curl.http_post(
