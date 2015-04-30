@@ -1,6 +1,8 @@
-require "Spartans/version"
 require "json"
 require "curb"
+
+require "Spartans/version"
+require "Spartans/error"
 
 module Spartans
 
@@ -29,11 +31,13 @@ module Spartans
   # Returns the hashed JSON of the API response
   #
   def self.push_item params
+    raise Spartans::Error.new('NO_ITEM_ID', '[REQUIRED] You did not provide the item id...') if params[:id].nil? || params[:id].empty?
+
     curl = init_curl 'items'
     curl.http_post(
       Curl::PostField.content('source_id', params[:id]),
-      Curl::PostField.content('name', params[:name]),
-      Curl::PostField.content('properties', params[:properties].to_json)
+      Curl::PostField.content('name', params[:name] || ''),
+      Curl::PostField.content('properties', params[:properties].nil? ? {} : params[:properties].to_json)
     )
     curl.perform
 
