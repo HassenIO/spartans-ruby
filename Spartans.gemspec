@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Hassen Taidirt"]
   spec.email         = ["htaidirt@gmail.com"]
   spec.summary       = %q{Spartans API client for ruby lovers.}
-  spec.description   = %q{Spartans helps you suggest what your users love. Use this gem to interract with Spartans API in a developper-friendly way.}
+  spec.description   = %q{Spartans helps you suggest what your users love. Use this ruby gem to interract with Spartans API in a developper-friendly way.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -27,7 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry"
   spec.add_development_dependency "pry-remote"
   spec.add_development_dependency "pry-nav"
-  spec.add_development_dependency "coveralls"
 
   spec.add_dependency "curb"
 end

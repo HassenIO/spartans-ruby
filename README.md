@@ -1,6 +1,6 @@
 # Spartans
 
-TODO: Write a gem description
+Spartans helps you suggest what your users love. Use this ruby gem to interract with Spartans API in a developper-friendly way.
 
 ## Installation
 
