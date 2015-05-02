@@ -6,7 +6,7 @@ Spartans helps you suggest what your users love. Use this ruby gem to interact w
 
 Add this line to your application's Gemfile:
 
-	gem 'Spartans'
+    gem 'spartans'
 
 And then execute:
 
@@ -14,27 +14,27 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install Spartans
+    $ gem install spartans
 
 ## Usage
 
 First, you have to init Spartans using your application credentials:
 
-    require 'Spartans'
-    
-	Spartans.init :app_id  => YOUR_APP_ID,
-	              :api_key => YOUR_API_KEY
+    require 'spartans'
 
-Then push an item to Spartans using `.push_item` method:
+    Spartans.init :app_id  => YOUR_APP_ID,
+                  :api_key => YOUR_API_KEY
 
-	Spartans.push_item	{	:id => ITEM_ID,
-							:name => ITEM_NAME,
-							:properties => ITEM_PROPERTIES
-						}
+Then push an item to Spartans using `Spartans::Item.push` method:
 
-Only the `:id` parameter is required to `.push_item` to uniquely identify the item. `:name` will be used in the Spartans application dashboard to help you identify an item with its name instead of a raw ID.
+    Spartans::Item.push { :id => ITEM_ID,
+                          :name => ITEM_NAME,
+                          :properties => ITEM_PROPERTIES
+                        }
 
-Finally, `:properties` parameter will be used when Spartans will look for relevant suggestions. That properties parameter will feed Spartans algorithme and create matching table between your items.
+Only the `:id` parameter is required to uniquely identify the item. `:name` will be used in the Spartans application dashboard to help you identify an item with its name instead of a raw ID.
+
+Finally, `:properties` parameter will be used when Spartans will look for relevant suggestions. That properties parameter will feed Spartans algorithm and create matches between your items.
 
 This Spartans method returns the JSON output of the API in a Hash format.
 

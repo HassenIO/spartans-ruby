@@ -2,6 +2,7 @@ require "json"
 require "curb"
 
 require "Spartans/version"
+require "Spartans/item"
 require "Spartans/error"
 
 module Spartans
@@ -14,34 +15,6 @@ module Spartans
     @api_version = params[:api_version] || 'v1'
     @api_url = params[:api_url] || 'http://api.spartans-dev.co:3000'
     return
-  end
-
-  # Get list of pushed items from Spartans
-  # Returns the hashed JSON of the API response
-  #
-  def self.get_items
-    curl = init_curl 'items'
-    curl.perform
-
-    return hash_output(curl)
-  end
-
-  # Push an item to Spartans
-  # Expects Hash parameters: :id(required), :name, :properties
-  # Returns the hashed JSON of the API response
-  #
-  def self.push_item params
-    Spartans::Error.cause('NO_ITEM_ID') if params[:id].nil?
-
-    curl = init_curl 'items'
-    curl.http_post(
-      Curl::PostField.content('source_id', params[:id]),
-      Curl::PostField.content('name', params[:name] || ''),
-      Curl::PostField.content('properties', params[:properties].nil? ? {} : params[:properties].to_json)
-    )
-    curl.perform
-
-    return hash_output(curl)
   end
 
 private
