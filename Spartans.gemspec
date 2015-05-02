@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Hassen Taidirt"]
   spec.email         = ["htaidirt@gmail.com"]
   spec.summary       = %q{Spartans API client for ruby lovers.}
-  spec.description   = %q{Spartans helps you suggest what your users love. Use this ruby gem to interract with Spartans API in a developper-friendly way.}
+  spec.description   = %q{Spartans helps you suggest what your users love. Use this ruby gem to interact with Spartans API in a developper-friendly way.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
