@@ -16,7 +16,7 @@ Or install it yourself as:
 
     $ gem install spartans
 
-## Usage
+## Quick start
 
 First, you have to init Spartans using your application credentials:
 
@@ -37,6 +37,30 @@ Only the `:id` parameter is required to uniquely identify the item. `:name` will
 Finally, `:properties` parameter will be used when Spartans will look for relevant suggestions. That properties parameter will feed Spartans algorithm and create matches between your items.
 
 This Spartans method returns the JSON output of the API in a Hash format.
+
+## Features
+
+### Init Spartans
+
+    Spartans.init :app_id  => YOUR_APP_ID,
+                  :api_key => YOUR_API_KEY
+
+Init the Spartans module using your application credentials (required step).
+
+### Push an item
+
+    Spartans::Item.push { :id => ITEM_ID,
+                          :name => ITEM_NAME,
+                          :properties => ITEM_PROPERTIES
+                        }
+
+Push an item to Spartans. Will feed Spartans matching algorithm with `:properties`
+
+### Get all pushed items
+
+    Spartans::Item.get_all
+
+Will give the list of all pushed items.
 
 ## Contributing
 
